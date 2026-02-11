@@ -110,12 +110,16 @@ docforge prompts --stage 1   # Regenerate specific stage
 
 ```bash
 # LLM Provider (default: openai)
-DOCFORGE_PROVIDER=openai     # or 'mock' for testing
+DOCFORGE_PROVIDER=openai     # or 'mock' or 'gemini'
 
 # OpenAI Configuration
 OPENAI_API_KEY=your-api-key
 OPENAI_MODEL=gpt-4o          # optional, default: gpt-4o
 OPENAI_BASE_URL=...          # optional, for API-compatible endpoints
+ 
+ # Gemini Configuration
+ GEMINI_API_KEY=your-api-key
+ GEMINI_MODEL=gemini-1.5-pro  # optional, default: gemini-1.5-pro
 ```
 
 ### Strict Mode

@@ -6,9 +6,10 @@
 import type { LLMProvider, ProviderConfig } from './types.js';
 import { createOpenAIProvider } from './openai.js';
 import { createMockProvider } from './mock.js';
+import { createGeminiProvider } from './gemini.js';
 
 /** Supported provider names */
-export type ProviderName = 'openai' | 'mock';
+export type ProviderName = 'openai' | 'mock' | 'gemini';
 
 /**
  * Get the configured provider name from environment
@@ -18,6 +19,10 @@ export function getProviderName(): ProviderName {
 
     if (envProvider === 'mock') {
         return 'mock';
+    }
+
+    if (envProvider === 'gemini') {
+        return 'gemini';
     }
 
     // Default to OpenAI
@@ -36,6 +41,8 @@ export function createProvider(
     switch (providerName) {
         case 'mock':
             return createMockProvider();
+        case 'gemini':
+            return createGeminiProvider(config);
         case 'openai':
         default:
             return createOpenAIProvider(config);
